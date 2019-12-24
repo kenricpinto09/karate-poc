@@ -4,14 +4,16 @@ function fn() {
     karate.configure('readTimeout', 5000);
 
     var baseUrl = karate.env;
-    karate.log('base url: ', baseUrl)
+    karate.log('base url: ', baseUrl);
 
     if (!baseUrl) {
-        baseUrl = 'http://dummy.restapiexample.com'
+        baseUrl = 'http://dummy.restapiexample.com';
     }
 
+    karate.log('base url: ', baseUrl);
+
     var port = karate.properties['port'];
-    karate.log('port: ', port)
+    karate.log('port: ', port);
 
     var config = {
         baseUrl: baseUrl,
