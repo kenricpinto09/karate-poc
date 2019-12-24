@@ -4,7 +4,6 @@ function fn() {
     karate.configure('readTimeout', 5000);
 
     var baseUrl = karate.env;
-    karate.log('base url: ', baseUrl);
 
     if (!baseUrl) {
         baseUrl = 'http://dummy.restapiexample.com';
