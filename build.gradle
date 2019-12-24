@@ -1,0 +1,45 @@
+plugins {
+    id 'java'
+}
+
+
+group 'com.poc'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+
+repositories {
+    mavenCentral()
+    jcenter()
+}
+
+
+sourceSets {
+    test {
+        resources {
+            srcDir file('src/test/java')
+            exclude '**/*.java'
+        }
+    }
+}
+
+
+dependencies {
+    testCompile group: 'com.intuit.karate', name: 'karate-apache', version: '0.9.4'
+    testCompile group: 'com.intuit.karate', name: 'karate-junit4', version: '0.9.4'
+    compile group: 'com.googlecode.json-simple', name: 'json-simple', version: '1.1.1'
+    compile group: 'net.masterthought', name: 'cucumber-reporting', version: '4.11.2'
+}
+
+
+
+test {
+    // pull karate options into the runtime
+    systemProperty "karate.options", System.properties.getProperty("karate.options")
+
+    // pull karate env into the runtime
+    systemProperty "karate.env", System.properties.getProperty("karate.env")
+
+    systemProperty "port", System.properties.getProperty("port")
+}
